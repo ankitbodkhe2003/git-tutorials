@@ -1,0 +1,225 @@
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ ssh-keygen -t ed25519 -C "ankitbodkhe2003@gmail.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/c/Users/rites/.ssh/id_ed25519):
+Created directory '/c/Users/rites/.ssh'.
+Enter passphrase for "/c/Users/rites/.ssh/id_ed25519" (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/rites/.ssh/id_ed25519
+Your public key has been saved in /c/Users/rites/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:oky7JvZIyXWPJTRC6CHMvfzGGdNOgAtBN8uJ4GU9AY4 ankitbodkhe2003@gmail.com
+The key's randomart image is:
++--[ED25519 256]--+
+|=ooB=..          |
+|++@+++           |
+| Eo*+ *          |
+|  .+ = +         |
+|    = X S        |
+| . = O B         |
+|  + = . .        |
+| .o...           |
+| ..+o            |
++----[SHA256]-----+
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ Start-Service ssh-agent
+bash: Start-Service: command not found
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ Get-Service -Name ssh-agent | Set-Service -StartupType Manual
+Start-Service ssh-agent
+bash: Get-Service: command not found
+bash: Set-Service: command not found
+bash: Start-Service: command not found
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ Get-Service -Name ssh-agent
+bash: Get-Service: command not found
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ Start-Service ssh-agent
+bash: Start-Service: command not found
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ eval $(ssh-agent -s)
+Agent pid 583
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ ssh-add c:/Users/YOU/.ssh/id_ed25519
+c:/Users/YOU/.ssh/id_ed25519: No such file or directory
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ ssh-add ^C
+
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ ssh-add ~/.ssh/id_rsa
+/c/Users/rites/.ssh/id_rsa: No such file or directory
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ ^[[200~ls ~/.ssh
+bash: $'\E[200~ls': command not found
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ ls ~/.ssh
+agent/  id_ed25519  id_ed25519.pub
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ ssh-add ~/.ssh/id_ed25519
+Identity added: /c/Users/rites/.ssh/id_ed25519 (ankitbodkhe2003@gmail.com)
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ clip < ~/.ssh/id_ed25519.pub
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git push -u origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'github.com:ankitbodkhe2003/git-tutorials.git
+'
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git push -u origin main
+The authenticity of host 'github.com (20.207.73.82)' can't be established.
+ED25519 key fingerprint is: SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+Host key verification failed.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git push -u origin main
+The authenticity of host 'github.com (20.207.73.82)' can't be established.
+ED25519 key fingerprint is: SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (8/8), 612 bytes | 306.00 KiB/s, done.
+Total 8 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.com:ankitbodkhe2003/git-tutorials.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git push -u origin main
+branch 'main' set up to track 'origin/main'.
+Everything up-to-date
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   utils.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git add .
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git commit -m "changed utils.txt"
+[main dbbf606] changed utils.txt
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git push -u origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'github.com:ankitbodkhe2003/git-tutorials.git
+'
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git push -u origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 302 bytes | 302.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.com:ankitbodkhe2003/git-tutorials.git
+   8d80068..dbbf606  main -> main
+branch 'main' set up to track 'origin/main'.
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git log
+commit dbbf606dc97936e6bf2353460c17cd5e239e2a3e (HEAD -> main, origin/main)
+Author: ankitbodkhe2003 <ankitbodkhe2003@gmail.com>
+Date:   Sun Jan 18 18:57:37 2026 +0530
+
+    changed utils.txt
+
+commit 8d800686562d0b3f69e575443b0346d837592b64
+Author: ankitbodkhe2003 <ankitbodkhe2003@gmail.com>
+Date:   Sun Jan 18 17:39:47 2026 +0530
+
+    new version2
+
+commit 9d75d1deb1d44eca7258547df60b3831d7c54827
+Author: ankitbodkhe2003 <ankitbodkhe2003@gmail.com>
+Date:   Sun Jan 18 17:35:34 2026 +0530
+
+    version 1
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git pull origin main
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 1009 bytes | 72.00 KiB/s, done.
+From github.com:ankitbodkhe2003/git-tutorials
+ * branch            main       -> FETCH_HEAD
+   dbbf606..4b74032  main       -> origin/main
+Updating dbbf606..4b74032
+Fast-forward
+ index.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+rites@DESKTOP-23MKNEM MINGW64 ~/Desktop/first git repo (main)
+$ git log
+commit 4b74032bdc180d7bb27eb880a337a1c89cf54fbf (HEAD -> main, origin/main)
+Author: ankitbodkhe2003 <ankitbodkhe2003@gmail.com>
+Date:   Sun Jan 18 19:02:44 2026 +0530
+
+    Add new line to index.txt with additional content
+
+    null lllllll
+
+commit dbbf606dc97936e6bf2353460c17cd5e239e2a3e
+Author: ankitbodkhe2003 <ankitbodkhe2003@gmail.com>
+Date:   Sun Jan 18 18:57:37 2026 +0530
+
+    changed utils.txt
+
+commit 8d800686562d0b3f69e575443b0346d837592b64
+Author: ankitbodkhe2003 <ankitbodkhe2003@gmail.com>
+Date:   Sun Jan 18 17:39:47 2026 +0530
+
+    new version2
+
+commit 9d75d1deb1d44eca7258547df60b3831d7c54827
+Author: ankitbodkhe2003 <ankitbodkhe2003@gmail.com>
+Date:   Sun Jan 18 17:35:34 2026 +0530
+
+    version 1
+(END)
